@@ -3,7 +3,7 @@
 #* License, v. 2.0. If a copy of the MPL was not distributed with this
 #* file, You can obtain one at https://mozilla.org/MPL/2.0/.
 #*
-#* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+#* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 #*
 #* Alternatively, the contents of this file may be used under the terms
 #* of the GNU Lesser General Public License Version 3.0, as described below:
@@ -79,7 +79,8 @@ HEADERS += \
     include/general/test_get_device_id_ack.h \
     include/general/test_set_power.h \
     include/general/test_get_main_status_ack.h \
-    include/general/test_get_stim_status_ack.h
+    include/general/test_get_stim_status_ack.h \
+    include/general/test_remove_file.h
 
 smpt_low-level {
     HEADERS += \
@@ -91,12 +92,14 @@ smpt_low-level {
         include/low-level/test_ll_init_ack.h \
     	include/low-level/test_ll_channel_config.h \
         include/low-level/test_ll_channel_config_ack.h \
-        include/low-level/test_ll_emg_switches.h
+        include/low-level/test_ll_emg_switches.h \
+        include/low-level/test_ll_examples.h
 }
 
 smpt_mid-level {
     HEADERS += \
-        include/mid-level/test_ml_packet_client_server.h
+        include/mid-level/test_ml_packet_client_server.h \
+        include/mid-level/test_ml_examples.h
 }
 
 smpt_dyscom-level {
@@ -110,7 +113,8 @@ smpt_dyscom-level {
         include/dyscom-level/test_dl_send_live_data.h \
         include/dyscom-level/test_dl_send_mmi.h \
         include/dyscom-level/test_dl_power_module.h \
-        include/dyscom-level/test_dl_sys.h
+        include/dyscom-level/test_dl_sys.h \
+        include/test_dl_examples.h
 }
 
 
@@ -130,7 +134,8 @@ SOURCES += \
     src/general/test_get_battery_status_ack.c \
     src/general/test_set_power.c \
     src/general/test_get_main_status_ack.c \
-    src/general/test_get_stim_status_ack.c
+    src/general/test_get_stim_status_ack.c \
+    src/general/test_remove_file.c
 
 smpt_low-level {
     SOURCES += \
@@ -140,12 +145,14 @@ smpt_low-level {
         src/low-level/test_ll_init.c \
         src/low-level/test_ll_init_ack.c \
         src/low-level/test_ll_channel_config.c \
-        src/low-level/test_ll_channel_config_ack.c
+        src/low-level/test_ll_channel_config_ack.c \
+        src/low-level/test_ll_examples.c
 }
 
 smpt_mid-level {
     SOURCES += \
-        src/mid-level/test_ml_packet_client_server.c
+        src/mid-level/test_ml_packet_client_server.c \
+        src/mid-level/test_ml_examples.c
 }
 
 smpt_dyscom-level {
