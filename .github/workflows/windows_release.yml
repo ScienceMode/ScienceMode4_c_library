@@ -67,7 +67,7 @@ jobs:
       - name: Build
         working-directory: ${{ runner.temp }}\build
         run:  |
-              qmake -r ${{ env.SOURCE_DIR }}\ScienceMode.pro
+              qmake -r "CONFIG+=myRelease smpt_all windows_static_x86" ${{ env.SOURCE_DIR }}\ScienceMode.pro
               ${{ runner.temp }}\jom\jom -j2
               cd release
               copy C:\Windows\System32\concrt140.dll . 
