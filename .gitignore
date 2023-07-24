@@ -51,3 +51,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 ScienceMode.pro.user
+.qtc_clangd
+ScienceMode_Library/object_script.smpt
+Makefile
+ScienceMode_Library_Test/object_script.smptlus_test
+.qmake.stash

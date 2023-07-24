@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -28,7 +28,7 @@ static void fill_get_file_ack(Smpt_get_file_ack *const get_file_ack);
 static bool compare_get_file_ack(const Smpt_get_file_ack *const get_file_ack_a,
                                  const Smpt_get_file_ack *const get_file_ack_b);
 
-void test_get_file_ack()
+void test_get_file_ack(void)
 {
     uint8_t buffer[Smpt_Limit_Max_Packet_Size];
     uint32_t buffer_length = Smpt_Limit_Max_Packet_Size;

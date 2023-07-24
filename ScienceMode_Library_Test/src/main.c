@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -39,7 +39,7 @@
 
 static void error(const char* format);
 
-void uint64_printf_scanf_test()
+void uint64_printf_scanf_test(void)
 {
     /*
     uint64_t a = 1073741824;
@@ -104,6 +104,7 @@ int main(void)
     smpt_init_error_callback(&error);
 
     /* general */
+    printf("test_packet_client_server()\n");
     test_packet_client_server();
 
 
@@ -112,6 +113,7 @@ int main(void)
     test_ll_packet_client_server();
     printf("test_ll_client_cmd_lists()\n\n");
     test_ll_client_cmd_lists();
+    /* Works only when a virtual comport is created*/
     /*test_ll_init_ping();*/
     /*test_single_pulse_main();*/
 #endif
@@ -119,6 +121,7 @@ int main(void)
 #ifdef SMPT_MID_LEVEL
     printf("test_ml_packet_client_server()\n\n");
     test_ml_packet_client_server();
+    /* Works only when a virtual comport is created*/
     /*test_mid_level_examples();*/
 #endif
 

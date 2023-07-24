@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -41,20 +41,14 @@
 
 /* File scope functions */
 
-void test_dl_packet_client_server()
+void test_dl_packet_client_server(void)
 {
     printf("test_dl_init()\n");
     test_dl_init();
 
     printf("test_dl_init_ack()\n");
     test_dl_init_ack();
-/*
-    printf("test_dl_start()\n");
-    test_dl_start();
 
-    printf("test_dl_start_ack()\n");
-    test_dl_start_ack();
-*/
     printf("test_dl_stop_ack()\n");
     test_dl_stop_ack();
 
@@ -65,7 +59,7 @@ void test_dl_packet_client_server()
     test_dl_get_ack();
 
     /*printf("test_dl_send_file()");*/
-    /*test_dl_send_file();*/
+    test_dl_send_file();
 
     printf("test_dl_send_live_data()\n");
     test_dl_send_live_data();
@@ -87,6 +81,7 @@ void test_dl_packet_client_server()
     printf("test_dl_sys_ack()\n");
     test_dl_sys_ack();
     /*printf("test_dl_examples()\n");*/
+    /*Only when virtual comport is connected*/
     /*test_dl_examples();*/
 }
 

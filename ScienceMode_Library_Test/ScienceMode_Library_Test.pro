@@ -92,7 +92,6 @@ smpt_low-level {
         include/low-level/test_ll_init_ack.h \
     	include/low-level/test_ll_channel_config.h \
         include/low-level/test_ll_channel_config_ack.h \
-        include/low-level/test_ll_emg_switches.h \
         include/low-level/test_ll_examples.h
 }
 

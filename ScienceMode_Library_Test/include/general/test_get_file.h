@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -24,7 +24,7 @@
 #ifndef TEST_GET_FILE_H
 #define TEST_GET_FILE_H
 
-void test_get_file();
+void test_get_file(void);
 
 #endif /* TEST_GET_FILE_H */
 

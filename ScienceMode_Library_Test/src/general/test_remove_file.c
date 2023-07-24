@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -29,7 +29,7 @@ static void fill_remove_file(Smpt_remove_file *const remove_file);
 static bool compare_remove_file(const Smpt_remove_file *const remove_file_a,
                              const Smpt_remove_file *const remove_file_b);
 
-void test_remove_file()
+void test_remove_file(void)
 {
     uint8_t buffer[Smpt_Limit_Max_Packet_Size];
     uint32_t buffer_length = Smpt_Limit_Max_Packet_Size;
@@ -43,10 +43,10 @@ void test_remove_file()
     fill_remove_file(&remove_file);
 
     packet_length = smpt_build_remove_file(buffer, buffer_length,
-                                           Smpt_Cmd_Al_Remove_File, &remove_file);
+                                           Smpt_Cmd_Dl_Get, &remove_file);
 
     assert(test_check_header_and_footer(buffer, packet_length));
-    assert(smpt_get_cmd(buffer, packet_length) == Smpt_Cmd_Al_Remove_File);
+    assert(smpt_get_cmd(buffer, packet_length) == Smpt_Cmd_Dl_Get);
     assert(smpt_check_length(buffer, packet_length));
     assert(smpt_check_checksum(buffer, packet_length));
     assert(smpt_extract_remove_file(&remove_file_out, buffer, packet_length));

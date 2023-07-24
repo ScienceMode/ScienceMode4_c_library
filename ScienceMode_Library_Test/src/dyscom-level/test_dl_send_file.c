@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -24,7 +24,7 @@
 #include "test_dl_send_file.h"
 #include "test_dl_common.h"
 
-void test_dl_send_file()
+void test_dl_send_file(void)
 {
     uint8_t buffer_[Smpt_Limit_Max_Packet_Size];
     uint32_t buffer_length_ = Smpt_Limit_Max_Packet_Size;
@@ -50,7 +50,7 @@ void test_dl_send_file()
 void fill_dl_send_file(Smpt_dl_send_file * const dl_send_file)
 {
     int n_blocks = SMPT_DL_MAX_BLOCK_BYTES_LENGTH;
-    uint8_t i;
+    int i;
     dl_send_file->block_number = 33;
     dl_send_file->n_bytes_per_block = n_blocks;
     for (i = 0; i < n_blocks; i++)
@@ -86,7 +86,7 @@ bool compare_dl_send_file(const Smpt_dl_send_file *const a,
     return valid;
 }
 
-void test_dl_send_file_ack()
+void test_dl_send_file_ack(void)
 {
     uint8_t buffer_[Smpt_Limit_Max_Packet_Size];
     uint32_t buffer_length_ = Smpt_Limit_Max_Packet_Size;

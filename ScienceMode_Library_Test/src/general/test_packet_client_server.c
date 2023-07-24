@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -37,13 +37,12 @@
 #include "test_get_stim_status_ack.h"
 #include "test_set_power.h"
 
-void test_packet_client_server()
+void test_packet_client_server(void)
 {
     test_get_file();
     test_get_file_ack();
     test_file_block();
-    //test_remove_file();
-
+    test_remove_file();
     test_get_battery_status_ack();
     test_get_device_id_ack();
     test_get_version_ack();
@@ -51,9 +50,7 @@ void test_packet_client_server()
     test_set_power();
     test_get_main_status_ack();
     test_get_stim_status_ack();
-
     test_file();
-
     test_ack();
     test_find_packet();
 }

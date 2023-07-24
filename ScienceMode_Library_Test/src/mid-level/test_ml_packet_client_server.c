@@ -3,7 +3,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at https://mozilla.org/MPL/2.0/.
 *
-* Copyright (c) 2013-2022, MPL and LGPL HASOMED GmbH
+* Copyright (c) 2013-2023, MPL and LGPL HASOMED GmbH
 *
 * Alternatively, the contents of this file may be used under the terms
 * of the GNU Lesser General Public License Version 3.0, as described below:
@@ -75,7 +75,7 @@ void test_ml_packet_client_server(void)
     test_ml_get_current_data_ack();
 }
 
-void test_ml_init()
+void test_ml_init(void)
 {
     uint32_t packet_length;
     Smpt_ml_init ml_init;
@@ -111,7 +111,7 @@ bool compare_ml_init(const Smpt_ml_init *const ml_init_a,
            (ml_init_a->packet_number == ml_init_b->packet_number);
 }
 
-void test_ml_update()
+void test_ml_update(void)
 {
     test_ml_update_internal(&fill_ml_update_full);
     test_ml_update_internal(&fill_ml_update_one_channel);
