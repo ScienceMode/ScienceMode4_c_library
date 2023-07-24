@@ -36,15 +36,14 @@ jobs:
         run: |
           git fetch --all --tags -f
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
-          version:      ${{ env.QT_VERSION }}
-          host:         windows
-          target:       desktop
-          arch:         win64_msvc2019_64
-          dir:          ${{ runner.temp }}
-          modules:      qtserialport
-          setup-python: false
+          aqtversion: '==3.1.*'
+          version: '5.12.12'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_msvc2017_64'
+          tools: 'tools_qtcreator,qt.tools.qtcreator'
 
       - name: Download JOM
         uses: suisei-cn/actions-download-file@v1
