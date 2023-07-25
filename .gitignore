@@ -56,3 +56,5 @@ ScienceMode_Library/object_script.smpt
 Makefile
 ScienceMode_Library_Test/object_script.smptlus_test
 .qmake.stash
+build/ScienceMode_Library/object_script.libsmpt
+build/ScienceMode_Library_Test/object_script.smptlus_test
