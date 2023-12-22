@@ -57,13 +57,13 @@ mingw {
 # gcc-multilib and g++-multilib.
 linux_static|linux_shared {
 #    CONFIG += staticlib
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Werror -Wall -O2 -D_BSD_SOURCE -pipe -fPIC -m32
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC -m32
     QMAKE_LINK   = gcc
     QMAKE_LFLAGS = -m32
 }
 
 linux_x86_amd64_static {
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Werror -Wall -O2 -D_BSD_SOURCE -pipe -fPIC -m64
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC -m64
     QMAKE_LINK   = gcc
     QMAKE_LFLAGS = -m64
 #    CONFIG += staticlib
@@ -127,14 +127,12 @@ macos {
     #QMAKE_EXT_OBJ = .bc
     CONFIG += staticlib
     #CONFIG =
-    QMAKE_CC     = /home/entwickler/Entwicklung/osxcross/target/bin/x86_64h-apple-darwin14-cc
-    QMAKE_CFLAGS = -g3 -Wall -fmessage-length=0 -I/home/entwickler/Entwicklung/osxcross/target/SDK/MacOSX10.10.sdk/System/Library/Frameworks/IOKit.framework/Headers/ -I/home/entwickler/Entwicklung/osxcross/target/SDK/MacOSX10.10.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/
+    QMAKE_CC     = x86_64h-apple-darwin14-cc
+    QMAKE_CFLAGS = -g3 -Wall -fmessage-length=0 
     QMAKE_CFLAGS_RELEASE =
     QMAKE_CFLAGS_DEBUG =
-    QMAKE_LINK   = /home/entwickler/Entwicklung/osxcross/target/bin/x86_64h-apple-darwin14-cc
-    #QMAKE_LFLAGS = -m64 -Wl -lpthread -L/home/entwickler/Entwicklung/osxcross/target/SDK/MacOSX10.10.sdk/usr/lib/
-    QMAKE_LFLAGS = -L/home/entwickler/Entwicklung/osxcross/target/SDK/MacOSX10.10.sdk/usr/lib/
-    QMAKE_LFLAGS_RELEASE =
+    QMAKE_LINK   = x86_64h-apple-darwin14-cc
+    QMAKE_LFLAGS =
 
     #TARGET_EXT = .bc
     #QMAKE_EXT_OBJ = .bc
