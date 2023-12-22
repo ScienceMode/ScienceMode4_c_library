@@ -33,6 +33,7 @@
  *  2. Preparing and processing a measurement of 100 values.
  */
 
+#include "test_dl_common.h"
 #include "smpt_dl_client.h"
 #include "smpt_packet_number_generator.h"
 #include <stdio.h>
