@@ -168,7 +168,7 @@ bool smpt_check_serial_port_internal(Smpt_device *const device)
 bool smpt_open_serial_port_internal(Smpt_device *const device)
 {
     return smpt_open_serial_port_macos(&device->serial_port_descriptor,
-                                       device->serial_port_name, B3000000, true);
+                                       device->serial_port_name, B230400, true);
 }
 
 
@@ -197,7 +197,7 @@ bool smpt_check_serial_port_internal(Smpt_device *const device)
     bool result;
 
     result = smpt_open_serial_port_macos(&device->serial_port_descriptor, device->serial_port_name,
-                                         B3000000, false);
+                                         B230400, false);
 
     if (result)
     {
