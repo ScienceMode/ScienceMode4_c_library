@@ -1,0 +1,60 @@
+name: Macos Release
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'continuous-integration'
+      - 'cross-platform'
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+    - 'main'
+    - 'continuous-integration'
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  SOURCE_DIR:   ${{ github.workspace }}
+  QT_VERSION:   5.15.2
+  ARTIFACT:     smpt.zip
+
+jobs:
+  build:
+    runs-on:  macos-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version:      ${{ env.QT_VERSION }}
+          dir:          ${{ runner.temp }}
+          tools: 'tools_qtcreator,qt.tools.qtcreator'
+              
+      - name: Create build directory
+        run:  mkdir ${{ env.SOURCE_DIR }}/build
+
+      - name: Build
+        working-directory: ${{ env.SOURCE_DIR }}/build
+        run:  |
+              qmake -r ${{ env.SOURCE_DIR }}/ScienceMode.pro
+              make
+              
+      - name: Zip build
+        working-directory: ${{ runner.temp }}
+        run:  |
+              7z a smpt.zip ${{ runner.temp }}\build\* -r      
+      
+      - name: Save build artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{ env.ARTIFACT }}
+          path: ${{ runner.temp }}\${{ env.ARTIFACT }}
