@@ -36,6 +36,7 @@
 #include "smpt_dl_client.h"
 #include "smpt_packet_number_generator.h"
 #include <stdio.h>
+#include <unistd.h>
 
 #define LIVE_DATA_TIME_OFFSET_EXPECTED  500
 #define LIVE_DATA_TIME_OFFSET_EPS       10
@@ -205,7 +206,7 @@ void measurement(Smpt_device *const device)
 
     printf("You have to wait 2 seconds after receiving the dl_power_module_ack "
            "\nbecause the circuits need time to get the power\n");
-    Sleep(2000);
+    sleep(2);
     printf("Waiting done\n\n");
 
     printf("2. Send dl_init to initialize the measurement circuits with "
@@ -385,7 +386,7 @@ void wait_for_response(Smpt_device *const device, Smpt_Cmd cmd)
             printf("Expected cmd was, cmd: %d %s, \n\n",
                    cmd,
                    get_command_response_text(cmd));
-            Sleep(2);
+            sleep(2);
         }
     }
     while(smpt_new_packet_received(device));
