@@ -33,7 +33,7 @@
 /*******************************************************************************
  Section Windows and Linux
 *******************************************************************************/
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 bool smpt_send_ml_init(Smpt_device *const device, const Smpt_ml_init *const ml_init)
 {
@@ -119,4 +119,4 @@ bool smpt_get_ml_get_current_data_ack(Smpt_device *const device,
 }
 
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */

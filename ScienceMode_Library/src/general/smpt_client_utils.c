@@ -28,7 +28,7 @@
 #include "smpt_packet_client.h"
 #include "smpt_client_cmd_lists.h"
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 bool smpt_send_cmd(Smpt_device *const device, uint8_t packet_number, Smpt_Cmd cmd_type)
 {

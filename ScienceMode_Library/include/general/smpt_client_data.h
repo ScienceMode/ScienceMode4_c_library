@@ -37,7 +37,7 @@ extern "C" {
 
 #include "smpt_definitions.h"
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 void smpt_client_data_init(Smpt_device *const device);
 
@@ -45,7 +45,7 @@ bool smpt_client_data_new_packet_received(Smpt_device *const device);
 
 void smpt_client_data_last_ack(Smpt_device *const device, Smpt_ack *const ack);
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 
 #ifdef __cplusplus
 }

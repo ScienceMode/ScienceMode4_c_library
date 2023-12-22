@@ -35,7 +35,7 @@
 extern "C" {
 #endif
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 #ifdef ANDROID
 #else
@@ -221,7 +221,7 @@ SMPT_API bool smpt_get_get_main_status_ack(Smpt_device *const device,
 SMPT_API Smpt_version smpt_library_version();
 
 #endif /* ANDROID */
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__)*/
 
 #ifdef __cplusplus
 }

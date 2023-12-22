@@ -55,7 +55,7 @@ SMPT_API void smpt_error(const char* format, ...)
     }
 }
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 #include "smpt_messages.h"
 
@@ -104,7 +104,7 @@ void smpt_debug(const char* format, ...)
 }*/
 
 
-/* End defined(_WIN32) || defined(__linux__) */
+/* End defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 #else /* µC */
 
 #include "smpt_definitions.h"

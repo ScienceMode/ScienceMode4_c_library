@@ -32,7 +32,7 @@
 #include "smpt_client_utils.h"
 #include "string.h"
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 #ifdef ANDROID
 #else
 

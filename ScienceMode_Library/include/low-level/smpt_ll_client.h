@@ -35,7 +35,7 @@
 extern "C" {
 #endif
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 #include "smpt_ll_definitions.h"
 #include "smpt_messages.h"
@@ -106,7 +106,7 @@ SMPT_API bool smpt_get_ll_channel_config_ack(const Smpt_device *const device,
                  Smpt_ll_channel_config_ack *const ll_channel_config_ack);
 
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 
 #ifdef __cplusplus
 }

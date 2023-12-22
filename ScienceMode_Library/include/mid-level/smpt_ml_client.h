@@ -38,7 +38,7 @@ extern "C" {
 /*******************************************************************************
  Section Windows and Linux
 *******************************************************************************/
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 #include "smpt_definitions.h"
 #include "smpt_ml_definitions_data_types.h"
@@ -109,7 +109,7 @@ SMPT_API bool smpt_get_ml_get_current_data_ack(Smpt_device *const device,
                                                Smpt_ml_get_current_data_ack *const
                                                ml_get_current_data_ack);
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 
 #ifdef __cplusplus
 }

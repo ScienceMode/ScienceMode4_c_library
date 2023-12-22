@@ -39,7 +39,7 @@
 /*******************************************************************************
  Section Windows and Linux
 *******************************************************************************/
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 bool smpt_send_ll_init(Smpt_device *const device,
                        const Smpt_ll_init *const ll_init)
@@ -131,7 +131,7 @@ bool smpt_get_ll_channel_config_ack(const Smpt_device *const device,
     return extracted;
 }
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 /*******************************************************************************
  End Section Windows and Linux
 *******************************************************************************/

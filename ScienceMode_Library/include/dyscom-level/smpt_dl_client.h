@@ -233,7 +233,7 @@ SMPT_API bool smpt_send_dl_sys(Smpt_device *const device, const Smpt_dl_sys *con
 *******************************************************************************/
 SMPT_API bool smpt_get_dl_sys_ack(Smpt_device *const device, Smpt_dl_sys_ack *const dl_sys_ack);
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__)*/
 
 #ifdef __cplusplus
 }

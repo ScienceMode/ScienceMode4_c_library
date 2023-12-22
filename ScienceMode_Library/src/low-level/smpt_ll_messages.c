@@ -30,7 +30,7 @@
 /* REMOVE FOR RELEASE VERSION */
 /* #define SMPT_DEBUG */
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -124,7 +124,7 @@ void smpt_print_ll_ack(const Smpt_ll_ack *const ll_ack)
 }*/
 
 
-/* End defined(_WIN32) || defined(__linux__) */
+/* End defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 #else /* µC */
 
 /* dummy implementations to trick the compiler */

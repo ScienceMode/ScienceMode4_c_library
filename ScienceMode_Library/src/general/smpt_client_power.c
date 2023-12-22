@@ -30,7 +30,7 @@
 #include "smpt_client_utils.h"
 #include "smpt_serial_port.h"
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 bool smpt_send_set_power(Smpt_device *const device, const Smpt_set_power *const set_power)
 {
@@ -51,4 +51,4 @@ bool smpt_send_set_power(Smpt_device *const device, const Smpt_set_power *const 
     return result;
 }
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */

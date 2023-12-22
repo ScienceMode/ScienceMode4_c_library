@@ -35,7 +35,7 @@
 /*******************************************************************************
  Section Windows and Linux
 *******************************************************************************/
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 bool smpt_send_dl_init(Smpt_device *const device, const Smpt_dl_init *const dl_init)
 {
@@ -330,6 +330,6 @@ bool smpt_send_dl_sys(Smpt_device * const device, const Smpt_dl_sys * const dl_s
 
     return result;
 }
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 
 

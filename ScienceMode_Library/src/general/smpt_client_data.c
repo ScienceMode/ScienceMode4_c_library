@@ -34,7 +34,7 @@
 /*******************************************************************************
  Section Windows and Linux
 *******************************************************************************/
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 static void update_incoming_packets(Smpt_device *const device);
 static bool read_packet(Smpt_device *const device, uint8_t **buffer, uint32_t *buffer_length);
@@ -156,7 +156,7 @@ bool smpt_new_packet_received_internal(void)
     return false;
 }
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 /*******************************************************************************
  End Section Windows and Linux
 *******************************************************************************/

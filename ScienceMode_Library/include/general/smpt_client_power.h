@@ -28,7 +28,7 @@
 extern "C" {
 #endif
 
-#if defined(_WIN32) || defined(__linux__)
+#if defined(_WIN32) || defined(__linux__) || defined(__APPLE__)
 
 #include "smpt_definitions.h"
 #include "smpt_definitions_power.h"
@@ -41,7 +41,7 @@ extern "C" {
 *******************************************************************************/
 SMPT_API bool smpt_send_set_power(Smpt_device *const device, const Smpt_set_power *const set_power);
 
-#endif /* defined(_WIN32) || defined(__linux__) */
+#endif /* defined(_WIN32) || defined(__linux__) || defined(__APPLE__) */
 
 #ifdef __cplusplus
 }
