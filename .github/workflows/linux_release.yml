@@ -48,7 +48,7 @@ jobs:
       - name: Build
         working-directory: ${{ env.SOURCE_DIR }}/build
         run:  |
-              qmake -r ${{ env.SOURCE_DIR }}/ScienceMode.pro
+              qmake -r "CONFIG+=myRelease smpt_all linux_x86_amd64_static" ${{ env.SOURCE_DIR }}/ScienceMode.pro
               make
               
       - name: Zip build
