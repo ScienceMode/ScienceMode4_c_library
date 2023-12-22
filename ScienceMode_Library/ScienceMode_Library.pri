@@ -63,6 +63,7 @@ HEADERS += \
     $$PWD/include/general/serial_port/smpt_serial_port.h         \
     $$PWD/include/general/serial_port/smpt_serial_port_windows.h \
     $$PWD/include/general/serial_port/smpt_serial_port_linux.h   \
+	$$PWD/include/general/serial_port/smpt_serial_port_macos.h   \
     $$PWD/include/general/smpt_definitions_file_transfer.h       \
     $$PWD/include/general/smpt_file.h                            \
     $$PWD/include/general/smpt_packet_number_generator.h         \
@@ -92,6 +93,7 @@ SOURCES += \
      $$PWD/src/general/serial_port/smpt_serial_port.c         \
      $$PWD/src/general/serial_port/smpt_serial_port_windows.c \
      $$PWD/src/general/serial_port/smpt_serial_port_linux.c   \
+	 $$PWD/src/general/serial_port/smpt_serial_port_macos.c   \
      $$PWD/src/general/smpt_definitions_file_transfer.c       \
      $$PWD/src/general/smpt_file.c                            \
      $$PWD/src/general/smpt_packet_number_generator.c         \

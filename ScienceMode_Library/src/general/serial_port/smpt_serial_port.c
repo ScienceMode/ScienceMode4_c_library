@@ -155,4 +155,56 @@ bool smpt_check_serial_port_internal(Smpt_device *const device)
 
 #endif /* __linux__ */
 
+/*******************************************************************************
+ Section Macos only
+*******************************************************************************/
+#ifdef __APPLE__
 
+#include "smpt_serial_port_macos.h"
+#include "smpt_packet_input_buffer.h"
+#include "smpt_client_data.h"
+#include <termios.h>
+
+bool smpt_open_serial_port_internal(Smpt_device *const device)
+{
+    return smpt_open_serial_port_macos(&device->serial_port_descriptor,
+                                       device->serial_port_name, B3000000, true);
+}
+
+
+bool smpt_close_serial_port_internal(Smpt_device *const device)
+{
+    return smpt_close_serial_port_macos(device->serial_port_descriptor);
+}
+
+
+bool smpt_write_to_serial_port_internal(Smpt_device *const device,
+                                        const uint8_t buffer[], uint32_t packet_length)
+{
+    return smpt_write_to_serial_port_macos(&device->serial_port_descriptor, buffer, packet_length);
+}
+
+
+bool smpt_read_from_serial_port_internal(Smpt_device *const device, uint32_t *bytes_read,
+                                         uint8_t buffer[], uint32_t buffer_length)
+{
+    return smpt_read_from_serial_port_macos(bytes_read, device->serial_port_descriptor,
+                                            buffer, buffer_length);
+}
+
+bool smpt_check_serial_port_internal(Smpt_device *const device)
+{
+    bool result;
+
+    result = smpt_open_serial_port_macos(&device->serial_port_descriptor, device->serial_port_name,
+                                         B3000000, false);
+
+    if (result)
+    {
+        smpt_close_serial_port_internal(device);
+    }
+
+    return result;
+}
+
+#endif /* __APPLE__ */
