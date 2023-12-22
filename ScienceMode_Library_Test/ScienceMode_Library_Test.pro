@@ -61,7 +61,10 @@ linux*|mingw{
     LIBS += ../ScienceMode_Library/$${SMPT_LIB_DESTDIR}/$${SM_LIB}.a
     PRE_TARGETDEPS += ../ScienceMode_Library/$${SMPT_LIB_DESTDIR}/$${SM_LIB}.a
 }
-
+macos{
+    LIBS += ../ScienceMode_Library/$${SMPT_LIB_DESTDIR}/$${SM_LIB}.a
+    PRE_TARGETDEPS += ../ScienceMode_Library/$${SMPT_LIB_DESTDIR}/$${SM_LIB}.a
+}
 
 HEADERS += \
     include/general/test_general_smpt.h \
