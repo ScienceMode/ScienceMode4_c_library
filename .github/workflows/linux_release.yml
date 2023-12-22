@@ -3,14 +3,14 @@ name: Linux Release
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'continuous-integration'
       - 'cross-platform'
     tags:
       - 'v*'
   pull_request:
     branches:
-    - 'master'
+    - 'main'
     - 'continuous-integration'
 
 defaults:
