@@ -127,11 +127,8 @@ macos {
     #QMAKE_EXT_OBJ = .bc
     CONFIG += staticlib
     #CONFIG =
-    QMAKE_CC     = x86_64h-apple-darwin14-cc
-    QMAKE_CFLAGS = -g3 -Wall -fmessage-length=0 
+    QMAKE_CFLAGS = = -std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC 
     QMAKE_CFLAGS_RELEASE =
-    QMAKE_CFLAGS_DEBUG =
-    QMAKE_LINK   = x86_64h-apple-darwin14-cc
     QMAKE_LFLAGS =
 
     #TARGET_EXT = .bc
