@@ -127,7 +127,7 @@ macos {
     #QMAKE_EXT_OBJ = .bc
     CONFIG += staticlib
     #CONFIG =
-    QMAKE_CFLAGS =-std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC 
+    QMAKE_CFLAGS = -O2 -D_BSD_SOURCE -pipe -fPIC 
     QMAKE_CFLAGS_RELEASE =
     QMAKE_LFLAGS =
 
