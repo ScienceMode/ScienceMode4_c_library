@@ -24,6 +24,8 @@
 #ifndef TEST_DL_EXAMPLES_H
 #define TEST_DL_EXAMPLES_H
 
+#include "smpt_dl_definitions.h"
+
 void test_dl_examples(void);
 
 #endif /* TEST_DL_EXAMPLES_H */
