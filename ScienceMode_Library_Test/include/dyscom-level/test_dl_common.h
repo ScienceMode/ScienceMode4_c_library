@@ -25,6 +25,7 @@
 #define TEST_DL_COMMON_H
 
 #include <assert.h>
+#include <string.h>
 #include "smpt_packet_general.h"
 #include "test_general_smpt.h"
 #include "smpt_dl_packet_server.h"
