@@ -20,7 +20,7 @@ defaults:
 env:
   SOURCE_DIR:   ${{ github.workspace }}
   QT_VERSION:   5.15.2
-  ARTIFACT:     smpt.zip
+  ARTIFACT:     smpt_macos.zip
 
 jobs:
   build:
@@ -51,10 +51,10 @@ jobs:
       - name: Zip build
         working-directory: ${{ runner.temp }}
         run:  |
-              7z a smpt.zip ${{ env.SOURCE_DIR }}/build/* -r      
+              7z a smpt_macos.zip ${{ env.SOURCE_DIR }}/build/* -r      
       
       - name: Save build artifact
         uses: actions/upload-artifact@master
         with:
           name: ${{ env.ARTIFACT }}
-          path: ${{ runner.temp }}\${{ env.ARTIFACT }}
+          path: ${{ runner.temp }}/${{ env.ARTIFACT }}
