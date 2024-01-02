@@ -29,11 +29,11 @@
 
 int test_simple_measurement(void);
 void measurement(Smpt_device *const device);
-void fill_dl_init(Smpt_device *const device, Smpt_dl_init *const dl_init);
+void fill_dl_init_examples(Smpt_device *const device, Smpt_dl_init *const dl_init);
 
 void fill_dl_init_test_signal(Smpt_dl_init *const dl_init);
 void fill_dl_init_bi_simple(Smpt_dl_init *const dl_init);
-void fill_dl_power_module(Smpt_device *const device, Smpt_dl_power_module* const dl_power_module);
+void fill_dl_power_module_examples(Smpt_device *const device, Smpt_dl_power_module* const dl_power_module);
 
 void wait_for_response(Smpt_device *const device, Smpt_Cmd cmd);
 

@@ -186,7 +186,7 @@ void measurement(Smpt_device *const device)
     printf("------------------------------------------------------------\n");
     printf("1. send dl_power_module to enable the power supply for the "
            "\nmeasurement circuits\n\n");
-    fill_dl_power_module(device, &dl_power_module);
+    fill_dl_power_module_examples(device, &dl_power_module);
     smpt_send_dl_power_module(device, &dl_power_module);
     wait_for_response(device, Smpt_Cmd_Dl_Power_Module_Ack);
 
@@ -197,7 +197,7 @@ void measurement(Smpt_device *const device)
 
     printf("2. Send dl_init to initialize the measurement circuits with "
            "\nmeasurement parameters\n");
-    fill_dl_init(device, &dl_init);
+    fill_dl_init_examples(device, &dl_init);
     smpt_send_dl_init(device, &dl_init);
     wait_for_response(device, Smpt_Cmd_Dl_Init_Ack);
 
@@ -222,14 +222,14 @@ void measurement(Smpt_device *const device)
 
 }
 
-void fill_dl_power_module(Smpt_device *const device, Smpt_dl_power_module* const dl_power_module)
+void fill_dl_power_module_examples(Smpt_device *const device, Smpt_dl_power_module* const dl_power_module)
 {
     dl_power_module->hardware_module = Smpt_Dl_Hardware_Module_Measurement;
     dl_power_module->packet_number = smpt_packet_number_generator_next(device);
     dl_power_module->switch_on_off = 1;
 }
 
-void fill_dl_init(Smpt_device *const device, Smpt_dl_init *const dl_init)
+void fill_dl_init_examples(Smpt_device *const device, Smpt_dl_init *const dl_init)
 {
     smpt_clear_dl_init(dl_init);
 
