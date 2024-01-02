@@ -52,8 +52,8 @@ jobs:
               make
 
       - name: Test
-        working-directory: ${{ runner.temp }}/build
-        run:  ${{ runner.temp }}/build/ScienceMode_Library_Test/smptlus_test
+        working-directory: ${{ env.SOURCE_DIR }}/build
+        run:  ${{ env.SOURCE_DIR }}/build/ScienceMode_Library_Test/smptlus_test
 
       - name: Zip build
         working-directory: ${{ runner.temp }}
