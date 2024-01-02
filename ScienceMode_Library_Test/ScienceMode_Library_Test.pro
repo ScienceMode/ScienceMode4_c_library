@@ -115,8 +115,9 @@ smpt_dyscom-level {
         include/dyscom-level/test_dl_send_live_data.h \
         include/dyscom-level/test_dl_send_mmi.h \
         include/dyscom-level/test_dl_power_module.h \
-        include/dyscom-level/test_dl_sys.h \
-        include/test_dl_examples.h
+		# include/test_dl_examples.h \
+        include/dyscom-level/test_dl_sys.h
+        
 }
 
 
@@ -167,7 +168,7 @@ smpt_dyscom-level {
         src/dyscom-level/test_dl_send_live_data.c \
         src/dyscom-level/test_dl_send_mmi.c \
         src/dyscom-level/test_dl_power_module.c \
-        src/dyscom-level/test_dl_examples.c \
+        # src/dyscom-level/test_dl_examples.c \
         src/dyscom-level/test_dl_sys.c
 }
 
