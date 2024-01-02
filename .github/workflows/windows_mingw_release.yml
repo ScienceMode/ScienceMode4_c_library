@@ -53,7 +53,11 @@ jobs:
         run:  |
               qmake -r "CONFIG+=myRelease smpt_all mingw" ${{ env.SOURCE_DIR }}\ScienceMode.pro
               mingw32-make -f Makefile
-              
+
+      - name: Test
+        working-directory: ${{ runner.temp }}\build
+        run:  ${{ runner.temp }}\build\\ScienceMode_Library_Test\smptlus_test.exe
+
       - name: Zip build
         working-directory: ${{ runner.temp }}
         run:  |

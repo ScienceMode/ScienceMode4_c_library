@@ -50,11 +50,15 @@ jobs:
         run:  |
               qmake -r "CONFIG+=myRelease smpt_all linux_x86_amd64_static" ${{ env.SOURCE_DIR }}/ScienceMode.pro
               make
-              
+
+      - name: Test
+        working-directory: ${{ runner.temp }}/build
+        run:  ${{ runner.temp }}/build/ScienceMode_Library_Test/smptlus_test
+
       - name: Zip build
         working-directory: ${{ runner.temp }}
         run:  |
-              7z a smpt_linux.zip ${{ env.SOURCE_DIR }}/build/* -r      
+              7z a smpt_linux.zip ${{ env.SOURCE_DIR }}/build/ScienceMode_Library/release/* -r      
       
       - name: Save build artifact
         uses: actions/upload-artifact@master
