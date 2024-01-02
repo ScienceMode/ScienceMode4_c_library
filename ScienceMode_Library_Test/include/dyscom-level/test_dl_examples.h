@@ -25,6 +25,7 @@
 #define TEST_DL_EXAMPLES_H
 
 #include "smpt_dl_definitions.h"
+#include "smpt_dl_definitions_data_types.h"
 
 void test_dl_examples(void);
 
