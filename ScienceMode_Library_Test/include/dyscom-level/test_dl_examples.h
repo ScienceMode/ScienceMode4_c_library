@@ -27,7 +27,18 @@
 #include "smpt_dl_definitions.h"
 #include "smpt_dl_definitions_data_types.h"
 
-void test_dl_examples(void);
+int test_simple_measurement(void);
+void measurement(Smpt_device *const device);
+void fill_dl_init(Smpt_device *const device, Smpt_dl_init *const dl_init);
+
+void fill_dl_init_test_signal(Smpt_dl_init *const dl_init);
+void fill_dl_init_bi_simple(Smpt_dl_init *const dl_init);
+void fill_dl_power_module(Smpt_device *const device, Smpt_dl_power_module* const dl_power_module);
+
+void wait_for_response(Smpt_device *const device, Smpt_Cmd cmd);
+
+void get_dl_live_data(Smpt_device *const device,
+                             Smpt_dl_send_live_data *const dl_live_data);
 
 #endif /* TEST_DL_EXAMPLES_H */
 

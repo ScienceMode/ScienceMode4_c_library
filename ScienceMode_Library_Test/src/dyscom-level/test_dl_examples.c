@@ -32,10 +32,9 @@
  *  1. Open a serial connection to the measurement device (struct Smpt_device)
  *  2. Preparing and processing a measurement of 100 values.
  */
-
-#include "test_dl_common.h"
 #include "test_dl_examples.h"
-#include "smpt_packet_number_generator.h"
+#include "test_dl_common.h"
+#include "test_dl_init.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -50,20 +49,6 @@
  * or CNCA0 for com0com virtual com port
  */
 static const char* DEFAULT_COM_PORT_NAME = "COM20";
-
-static int test_simple_measurement(void);
-static void measurement(Smpt_device *const device);
-static void fill_dl_init(Smpt_device *const device, Smpt_dl_init *const dl_init);
-
-static void fill_dl_init_test_signal(Smpt_dl_init *const dl_init);
-static void fill_dl_init_bi_simple(Smpt_dl_init *const dl_init);
-static void fill_dl_power_module(Smpt_device *const device, Smpt_dl_power_module* const dl_power_module);
-
-static void wait_for_response(Smpt_device *const device, Smpt_Cmd cmd);
-
-static void get_dl_live_data(Smpt_device *const device,
-                             Smpt_dl_send_live_data *const dl_live_data);
-
 
 void test_dl_examples(void)
 {
