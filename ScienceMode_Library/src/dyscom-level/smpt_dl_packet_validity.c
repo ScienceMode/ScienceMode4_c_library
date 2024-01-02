@@ -255,7 +255,7 @@ bool is_valid_electrode_samples(const Smpt_dl_electrode_sample
         {
             valid  = false;
             smpt_error("is_valid_electrode_samples(): "
-                       "electrode_samples[%d].value = %d"
+                       "electrode_samples[%d].value = %f"
                        "is out of bounds: [%d, %d]",
                        i,
                        electrode_samples[i].value,

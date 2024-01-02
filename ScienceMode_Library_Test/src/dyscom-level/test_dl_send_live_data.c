@@ -62,7 +62,7 @@ void fill_dl_send_live_data(Smpt_dl_send_live_data * const dl_send_live_data)
     {
         dl_send_live_data->electrode_samples[i].status = Smpt_Dl_Electrode_Status_Positive || Smpt_Dl_Electrode_Status_Negative;
         dl_send_live_data->electrode_samples[i].signal_type = Smpt_Dl_Signal_Type_BI;
-        dl_send_live_data->electrode_samples[i].value = ((uint64_t)rand()) * 255 - 1;
+        dl_send_live_data->electrode_samples[i].value = (float)rand() / RAND_MAX;
     }
 }
 

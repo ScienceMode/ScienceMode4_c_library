@@ -46,10 +46,10 @@ mingw {
     CONFIG += shared
 
     CONFIG(debug, debug|release) {
-        QMAKE_CFLAGS += -std=c99 -pedantic-errors -Werror -Wall -g -D_BSD_SOURCE
+        QMAKE_CFLAGS += -std=c99 -pedantic-errors -Werror -Wall -g -D_DEFAULT_SOURCE
     }
     else {
-        QMAKE_CFLAGS += -std=c99 -pedantic-errors -Werror -Wall -O2 -D_BSD_SOURCE
+        QMAKE_CFLAGS += -std=c99 -pedantic-errors -Werror -Wall -O2 -D_DEFAULT_SOURCE
     }
 }
 
@@ -57,13 +57,13 @@ mingw {
 # gcc-multilib and g++-multilib.
 linux_static|linux_shared {
 #    CONFIG += staticlib
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC -m32
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_DEFAULT_SOURCE -pipe -fPIC -m32
     QMAKE_LINK   = gcc
     QMAKE_LFLAGS = -m32
 }
 
 linux_x86_amd64_static {
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC -m64
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_DEFAULT_SOURCE -pipe -fPIC -m64
     QMAKE_LINK   = gcc
     QMAKE_LFLAGS = -m64
 #    CONFIG += staticlib
@@ -72,7 +72,7 @@ linux_x86_amd64_static {
 android {
     QMAKE_CC     = arm-linux-androideabi-gcc
     QMAKE_CFLAGS_RELEASE =
-    QMAKE_CFLAGS = -O2 -D_BSD_SOURCE -pipe -fPIC -Wall #-Werror
+    QMAKE_CFLAGS = -O2 -D_DEFAULT_SOURCE -pipe -fPIC -Wall #-Werror
     QMAKE_LINK   = arm-linux-androideabi-gcc
     QMAKE_LFLAGS =
     INCLUDEPATH += %appdata%/Local/Android/sdk/ndk-bundle/platforms/android-23/arch-arm/usr/include/
@@ -81,7 +81,7 @@ android {
 win_arm {
 #    CONFIG += staticlib
     QMAKE_CC     = C:/arm/bin/arm-none-eabi-gcc
-    QMAKE_CFLAGS = -mcpu=cortex-m4  -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O2 -mthumb  -pedantic-errors -Werror -Wall -std=c99 -D_BSD_SOURCE -pipe -fPIC -DUC_MAIN  #  -std=gnu11   # -std=gnu11
+    QMAKE_CFLAGS = -mcpu=cortex-m4  -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O2 -mthumb  -pedantic-errors -Werror -Wall -std=c99 -D_DEFAULT_SOURCE -pipe -fPIC -DUC_MAIN  #  -std=gnu11   # -std=gnu11
     QMAKE_CFLAGS_RELEASE =
     INCLUDEPATH += C:/arm/arm-none-eabi/include
     QMAKE_LFLAGS =
@@ -92,7 +92,7 @@ win_arm {
 linux_arm {
 #    CONFIG += staticlib
     QMAKE_CC     = arm-linux-gnueabihf-gcc
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Werror -Wall -O2 -D_BSD_SOURCE -pipe -fPIC
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Werror -Wall -O2 -D_DEFAULT_SOURCE -pipe -fPIC
     QMAKE_CFLAGS_RELEASE =
     QMAKE_LINK   = arm-linux-gnueabihf-gcc
     QMAKE_LFLAGS =
@@ -102,7 +102,7 @@ linux_arm {
 linux_arm_64 {
 #    CONFIG += staticlib
     QMAKE_CC     = aarch64-linux-gnu-gcc
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Werror -Wall -O2 -D_BSD_SOURCE -pipe -fPIC
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Werror -Wall -O2 -D_DEFAULT_SOURCE -pipe -fPIC
     QMAKE_CFLAGS_RELEASE =
     QMAKE_LINK   = aarch64-linux-gnu-gcc
     QMAKE_LFLAGS =
@@ -127,7 +127,7 @@ macos {
     #QMAKE_EXT_OBJ = .bc
     CONFIG += staticlib
     #CONFIG =
-    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_BSD_SOURCE -pipe -fPIC 
+    QMAKE_CFLAGS = -std=c99 -pedantic-errors -Wall -O2 -D_DEFAULT_SOURCE -pipe -fPIC 
     QMAKE_CFLAGS_RELEASE =
     QMAKE_LFLAGS =
 
