@@ -52,9 +52,9 @@ jobs:
               make
               
       - name: Zip build
-        working-directory: ${{ env.SOURCE_DIR }}/build
+        working-directory: ${{ runner.temp }}
         run:  |
-              7z a smpt.zip ${{ env.SOURCE_DIR }}/linux/* -r      
+              7z a smpt.zip ${{ env.SOURCE_DIR }}/release/* -r      
       
       - name: Save build artifact
         uses: actions/upload-artifact@master
