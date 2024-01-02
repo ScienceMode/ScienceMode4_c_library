@@ -32,7 +32,7 @@
 #include "test_dl_send_mmi.h"
 #include "test_dl_power_module.h"
 #include "test_dl_sys.h"
-#include "test_dl_examples.h"
+// #include "test_dl_examples.h"
 #include <stdio.h>
 
 /* File scope variables */
