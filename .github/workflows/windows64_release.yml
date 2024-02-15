@@ -1,0 +1,92 @@
+name: Windows Release
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'continuous-integration'
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+    - 'main'
+    - 'continuous-integration'
+
+defaults:
+  run:
+    shell: cmd
+
+env:
+  SOURCE_DIR:   ${{ github.workspace }}
+  QT_VERSION:   5.15.2
+  ARTIFACT:     smpt.zip
+
+jobs:
+  build:
+    runs-on:  windows-2019
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Get all tags for correct version determination
+        working-directory:  ${{ github.workspace }}
+        run: |
+          git fetch --all --tags -f
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          aqtversion: '==3.1.*'
+          version: '5.12.12'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_msvc2017_64'
+          tools: 'tools_qtcreator,qt.tools.qtcreator'
+
+      - name: Download JOM
+        uses: suisei-cn/actions-download-file@v1
+        with:
+          url:    http://download.qt.io/official_releases/jom/jom.zip
+          target: ${{ runner.temp }}\
+
+      - name: Unzip JOM
+        working-directory: ${{ runner.temp }}
+        run:  |
+              7z x jom.zip -ojom
+              
+      - name: Create build directory
+        run:  mkdir ${{ runner.temp }}\build
+
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: x64
+
+      - name: Build
+        working-directory: ${{ runner.temp }}\build
+        run:  |
+              qmake -r "CONFIG+=myRelease smpt_all windows_static_amd64" ${{ env.SOURCE_DIR }}\ScienceMode.pro
+              ${{ runner.temp }}\jom\jom -j2
+              cd release
+              copy C:\Windows\System32\concrt140.dll . 
+              copy C:\Windows\System32\vccorlib140.dll .
+              copy C:\Windows\System32\msvcp140.dll .
+              copy C:\Windows\System32\vcruntime140.dll .
+
+      - name: Test
+        working-directory: ${{ runner.temp }}\build
+        run:  ${{ runner.temp }}\build\\ScienceMode_Library_Test\smptlus_test.exe
+
+      - name: Zip build
+        working-directory: ${{ runner.temp }}
+        run:  |
+              7z a smpt.zip ${{ runner.temp }}\build\ScienceMode_Library\release\* -r
+              
+      - name: Save build artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{ env.ARTIFACT }}
+          path: ${{ runner.temp }}\${{ env.ARTIFACT }}
+              
