@@ -38,7 +38,6 @@ jobs:
           version:      ${{ env.QT_VERSION }}
           dir:          ${{ runner.temp }}
           tools: 'tools_qtcreator,qt.tools.qtcreator'
-          modules: 'qtserialport'
               
       - name: Create build directory
         run:  mkdir ${{ env.SOURCE_DIR }}/build
