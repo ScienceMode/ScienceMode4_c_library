@@ -175,11 +175,11 @@ void extract_dl_get(Smpt_dl_get *const dl_get,
     /*
      * Always expect name payload at the end!
      */
-    if((dl_get->get_type == Smpt_Dl_Get_Type_File_By_Name))
+    if(dl_get->get_type == Smpt_Dl_Get_Type_File_By_Name)
     {
         index = smpt_dl_extract_file_by_name(&dl_get->file_by_name, buffer_unstuffed, index);
     }
-    else if((dl_get->get_type == Smpt_Dl_Get_Type_File_Info))
+    else if(dl_get->get_type == Smpt_Dl_Get_Type_File_Info)
     {
         index = smpt_dl_extract_file_info(&dl_get->file_info, buffer_unstuffed, index);
     }

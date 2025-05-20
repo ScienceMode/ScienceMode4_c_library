@@ -75,7 +75,7 @@ void smpt_packet_input_buffer1_clear_data_line(void)
     smpt_packet_input_buffer_clear_data_line(&packet_input_buffer_1_);
 }
 
-bool smpt_packet_input_buffer1_nearly_full()
+bool smpt_packet_input_buffer1_nearly_full(void)
 {
     return smpt_packet_input_buffer_nearly_full(&packet_input_buffer_1_);
 }
