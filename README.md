@@ -35,9 +35,24 @@ qmake -r "CONFIG+=myRelease smpt_all linux_x86_amd64_static" ScienceMode.pro
 make
 ```
 
-### Build library on MacOs
-Qt5 Core and qmake needs to be installed first. Then the library can be build by:
+### Build library on MacOS
+Qt5 Core and qmake needs to be installed first. 
+
+#### Install Qt5
+In a terminal, assuming [homebrew](https://brew.sh) is installed, run:
 ```
-qmake -r "CONFIG+=myRelease smpt_all macos" ScienceMode.pro
+$ brew install qt@5
+$ brew install qt-creator
+```
+#### Link QT-Creator to Qt
+After opening QT-Creator, you can link the Qt installation by navigating to:
+```
+/opt/homebrew/Cask/qt@5/ 
+```
+
+#### ScienceMode_Library
+```
+$ qmake -r "CONFIG+=myRelease smpt_all macos" ScienceMode.pro
 make
 ```
+
