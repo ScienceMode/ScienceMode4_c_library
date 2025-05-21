@@ -91,8 +91,8 @@ void smpt_debug(const char* format, ...)
 #else
 void smpt_debug(const char* format, ...)
 {
-    char c = format[0]; /* dummy commands to satisfy the compiler */
-    c++;
+    //char c = format[0]; /* dummy commands to satisfy the compiler */
+    //c++;
 }
 #endif /* SMPT_DEBUG */
 /*void smpt_time_stamp(const char message[])
