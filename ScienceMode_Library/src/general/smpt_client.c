@@ -275,7 +275,7 @@ bool smpt_get_get_main_status_ack(Smpt_device * const device,
     return extracted;
 }
 
-Smpt_version smpt_library_version()
+Smpt_version smpt_library_version(void)
 {
     Smpt_version version = {0};
     version.major    = Smpt_Library_Version_Major;
