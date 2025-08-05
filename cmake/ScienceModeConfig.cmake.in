@@ -1,0 +1,14 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(Threads)
+
+# Propagate the compile definitions for the various layers
+set(SMPT_LOW_LEVEL @SMPT_LOW_LEVEL@)
+set(SMPT_MID_LEVEL @SMPT_MID_LEVEL@)
+set(SMPT_DYSCOM_LEVEL @SMPT_DYSCOM_LEVEL@)
+
+include("${CMAKE_CURRENT_LIST_DIR}/ScienceModeTargets.cmake")
+
+# For backwards compatibility with existing code
+add_library(ScienceMode::sciencemode ALIAS ScienceMode::smpt)

@@ -1,6 +1,85 @@
 # ScienceMode4_c_library
 C library for the ScienceMode 4 protocol
 
+## Compiling with cmake
+
+### Basic Compilation
+
+To build the library using CMake, follow these steps:
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+
+This will build a static library named `libsmpt.a` by default.
+
+### Build Options
+
+The following CMake options are available:
+
+- `BUILD_SHARED_LIBS` - Build shared library (.so/.dll) instead of static (.a/.lib)
+- `SMPT_LOW_LEVEL` - Enable Low-Level protocol module (ON by default)
+- `SMPT_MID_LEVEL` - Enable Mid-Level protocol module (ON by default)
+- `SMPT_DYSCOM_LEVEL` - Enable Dyscom-Level protocol module (ON by default)
+
+Example: Building a shared library with only the low-level module:
+
+```bash
+cmake .. -DBUILD_SHARED_LIBS=ON -DSMPT_MID_LEVEL=OFF -DSMPT_DYSCOM_LEVEL=OFF
+make
+```
+
+### Running Tests
+
+To build and run the tests:
+
+```bash
+cmake ..
+make
+./sciencemode_tests
+```
+
+or use CTest:
+
+```bash
+cmake ..
+make
+ctest
+```
+
+### Installing the Library
+
+To install the library system-wide:
+
+```bash
+cmake ..
+make
+sudo make install
+```
+
+This will install the library, headers, and CMake config files.
+
+### Using in Other CMake Projects
+
+After installation, the library can be used in other CMake projects:
+
+```cmake
+find_package(ScienceMode REQUIRED)
+target_link_libraries(your_project PRIVATE ScienceMode::smpt)
+```
+
+### Cross-Platform Notes
+
+- **Linux**: Make sure you have development packages installed (`build-essential`, `cmake`)
+- **Windows**: Both MSVC and MinGW compilers are supported
+- **macOS**: Standard build process works with both Intel and ARM-based Macs
+
+
+## Compiling with Qt
+
 ### Build library on Windows
 Please download the QT-Installer from https://www.qt.io/download-open-source and install Qt Creator and Qt5 / Qt6.
 Besides QT, Qt Serial Port is necessary.

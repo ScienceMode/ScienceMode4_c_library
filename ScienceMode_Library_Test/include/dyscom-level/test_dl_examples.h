@@ -26,6 +26,11 @@
 
 #include "smpt_dl_definitions.h"
 #include "smpt_dl_definitions_data_types.h"
+#include "smpt_client.h"
+#include "smpt_packet_number_generator.h" 
+#include "smpt_serial_port.h"
+#include "smpt_client_data.h"
+#include "smpt_dl_client.h"
 
 int test_simple_measurement(void);
 void measurement(Smpt_device *const device);
