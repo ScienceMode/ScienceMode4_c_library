@@ -25,6 +25,19 @@ The following CMake options are available:
 - `SMPT_MID_LEVEL` - Enable Mid-Level protocol module (ON by default)
 - `SMPT_DYSCOM_LEVEL` - Enable Dyscom-Level protocol module (ON by default)
 
+#### Compiler Warning Options
+
+You can enable additional compiler warnings and error checks:
+
+- `ENABLE_WERROR` - Treat warnings as errors (OFF by default)
+- `ENABLE_STRICT_PROTOTYPE` - Enable strict function prototype checking (OFF by default)
+- `ENABLE_ALL_WARNINGS` - Enable more comprehensive warnings (-Wextra, -pedantic) (OFF by default)
+
+Example:
+```bash
+cmake .. -DENABLE_WERROR=ON -DENABLE_STRICT_PROTOTYPE=ON
+```
+
 Example: Building a shared library with only the low-level module:
 
 ```bash
@@ -115,8 +128,23 @@ make
 ```
 
 ### Build library on MacOs
-Qt5 Core and qmake needs to be installed first. Then the library can be build by:
+Qt5 Core and qmake needs to be installed first. 
+
+#### Install Qt5
+In a terminal, assuming [homebrew](https://brew.sh) is installed, run:
+```
+$ brew install qt@5
+$ brew install qt-creator
+```
+#### Link QT-Creator to Qt
+After opening QT-Creator, you can link the Qt installation by navigating to:
 ```
 qmake -r "CONFIG+=myRelease smpt_all macos" ScienceMode.pro
+/opt/homebrew/Cask/qt@5/ 
+```
+
+#### ScienceMode_Library
+```
+$ qmake -r "CONFIG+=myRelease smpt_all macos" ScienceMode.pro
 make
 ```

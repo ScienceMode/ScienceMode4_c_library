@@ -30,7 +30,7 @@ void test_dl_send_file(void);
 void fill_dl_send_file(Smpt_dl_send_file *const dl_send_file);
 bool compare_dl_send_file(const Smpt_dl_send_file *const a,
                           const Smpt_dl_send_file *const b);
-void test_dl_send_file_ack();
+void test_dl_send_file_ack(void);
 void fill_dl_send_file_ack(Smpt_dl_send_file_ack *const dl_send_file_ack);
 bool compare_dl_send_file_ack(const Smpt_dl_send_file_ack *const a,
                               const Smpt_dl_send_file_ack *const b);

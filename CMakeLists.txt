@@ -13,6 +13,11 @@ option(SMPT_MID_LEVEL "Enable Mid-Level module" ON)
 option(SMPT_DYSCOM_LEVEL "Enable Dyscom-Level module" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries instead of static" OFF)
 
+# Compiler warning options
+option(ENABLE_WERROR "Treat warnings as errors" OFF)
+option(ENABLE_STRICT_PROTOTYPE "Enable strict prototype warnings" OFF)
+option(ENABLE_ALL_WARNINGS "Enable all warnings" OFF)
+
 # Library source files
 file(GLOB_RECURSE LIB_SOURCES
     "ScienceMode_Library/src/general/*.c"
@@ -77,6 +82,34 @@ target_include_directories(smpt
 )
 target_link_libraries(smpt PUBLIC m)  # Link with math library
 
+# Apply compiler warning flags
+if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+    # Base warning flags that are always enabled
+    target_compile_options(smpt PRIVATE -Wall)
+    
+    # Optional warning flags
+    if(ENABLE_STRICT_PROTOTYPE)
+        target_compile_options(smpt PRIVATE -Wstrict-prototypes)
+    endif()
+    
+    if(ENABLE_ALL_WARNINGS)
+        target_compile_options(smpt PRIVATE -Wextra -pedantic)
+    endif()
+    
+    # Treat warnings as errors if enabled
+    if(ENABLE_WERROR)
+        target_compile_options(smpt PRIVATE -Werror)
+    endif()
+elseif(MSVC)
+    # MSVC warning options
+    target_compile_options(smpt PRIVATE /W4)
+    
+    # Treat warnings as errors if enabled
+    if(ENABLE_WERROR)
+        target_compile_options(smpt PRIVATE /WX)
+    endif()
+endif()
+
 # Add compile definitions based on options
 if(SMPT_LOW_LEVEL)
     target_compile_definitions(smpt PUBLIC SMPT_LOW_LEVEL)
@@ -116,6 +149,34 @@ if(SMPT_MID_LEVEL)
 endif()
 if(SMPT_DYSCOM_LEVEL)
     target_compile_definitions(sciencemode_tests PRIVATE SMPT_DYSCOM_LEVEL)
+endif()
+
+# Apply the same compiler warning flags to test executable
+if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+    # Base warning flags that are always enabled
+    target_compile_options(sciencemode_tests PRIVATE -Wall)
+    
+    # Optional warning flags
+    if(ENABLE_STRICT_PROTOTYPE)
+        target_compile_options(sciencemode_tests PRIVATE -Wstrict-prototypes)
+    endif()
+    
+    if(ENABLE_ALL_WARNINGS)
+        target_compile_options(sciencemode_tests PRIVATE -Wextra -pedantic)
+    endif()
+    
+    # Treat warnings as errors if enabled
+    if(ENABLE_WERROR)
+        target_compile_options(sciencemode_tests PRIVATE -Werror)
+    endif()
+elseif(MSVC)
+    # MSVC warning options
+    target_compile_options(sciencemode_tests PRIVATE /W4)
+    
+    # Treat warnings as errors if enabled
+    if(ENABLE_WERROR)
+        target_compile_options(sciencemode_tests PRIVATE /WX)
+    endif()
 endif()
 
 # Configure a ScienceModeConfig.cmake file

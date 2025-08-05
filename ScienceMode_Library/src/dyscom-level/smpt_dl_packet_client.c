@@ -428,12 +428,12 @@ uint32_t insert_dl_get(uint8_t buffer_unstuffed[], const Smpt_dl_get *const dl_g
                         uint32_t index)
 {
     buffer_unstuffed[index++] = dl_get->get_type;
-    if((dl_get->get_type == Smpt_Dl_Get_Type_File_By_Name))
+    if(dl_get->get_type == Smpt_Dl_Get_Type_File_By_Name)
     {
         index = smpt_dl_insert_file_by_name(buffer_unstuffed, &dl_get->file_by_name,
                                       index);
     }
-    else if((dl_get->get_type == Smpt_Dl_Get_Type_File_Info))
+    else if(dl_get->get_type == Smpt_Dl_Get_Type_File_Info)
     {
         index = smpt_dl_insert_file_info(buffer_unstuffed, &dl_get->file_info,
                                       index);
