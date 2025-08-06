@@ -36,7 +36,12 @@
 #include "test_dl_common.h"
 #include "test_dl_init.h"
 #include <stdio.h>
+#ifdef _WIN32
+#include <windows.h>
+#define sleep(x) Sleep((x)*1000)
+#else
 #include <unistd.h>
+#endif
 
 #define LIVE_DATA_TIME_OFFSET_EXPECTED  500
 #define LIVE_DATA_TIME_OFFSET_EPS       10
