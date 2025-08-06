@@ -80,7 +80,9 @@ target_include_directories(smpt
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/ScienceMode_Library/include/dyscom-level>
         $<INSTALL_INTERFACE:include/ScienceMode4>
 )
-target_link_libraries(smpt PUBLIC m)  # Link with math library
+if(NOT WIN32)
+    target_link_libraries(smpt PUBLIC m)  # Link with math library
+endif()
 
 # Apply compiler warning flags
 if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
