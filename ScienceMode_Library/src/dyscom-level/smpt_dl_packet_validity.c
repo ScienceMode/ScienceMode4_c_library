@@ -271,7 +271,7 @@ bool is_valid_ads129x(const Smpt_dl_ads129x *const ads129x)
 {
     bool is_valid = true;
     int nothing = ads129x->ch1set;
-    nothing++;
+    (void)nothing;
     /*
     int dont_know_what_to_check_here;
     */
@@ -311,7 +311,7 @@ bool is_valid_file_system_status(const Smpt_dl_file_system_status *const file_sy
 {
     bool valid = true;
     int nothing = file_system_status->free_size;
-    nothing++;
+    (void)nothing;
     /* file_system_status->  ??  maybe add sum of free_size + used_size ? */
     return valid;
 }
@@ -320,7 +320,7 @@ bool smpt_is_valid_dl_send_mmi(const Smpt_dl_send_mmi *const dl_send_mmi)
 {
     bool valid = true;
     int nothing = dl_send_mmi->dl_init.packet_number;
-    nothing++;
+    (void)nothing;
     return valid;
 }
 

@@ -92,7 +92,7 @@ void smpt_debug(const char* format, ...)
 void smpt_debug(const char* format, ...)
 {
     char c = format[0]; /* dummy commands to satisfy the compiler */
-    c++;
+    (void)c;
 }
 #endif /* SMPT_DEBUG */
 /*void smpt_time_stamp(const char message[])
@@ -112,7 +112,7 @@ void smpt_debug(const char* format, ...)
 void smpt_debug(const char* format, ...)
 {
     char c = format[0];
-    c++;
+    (void)c;
 }
 
 

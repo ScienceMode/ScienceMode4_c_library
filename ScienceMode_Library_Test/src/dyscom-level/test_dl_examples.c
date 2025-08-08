@@ -35,7 +35,7 @@
 #include "test_dl_examples.h"
 #include "test_dl_common.h"
 #include "test_dl_init.h"
-#include "smpt_dl_client.h"
+#include "dyscom-level/smpt_dl_client.h"
 #include <stdio.h>
 #include <time.h>
 #ifdef _WIN32
