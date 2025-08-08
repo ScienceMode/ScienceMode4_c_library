@@ -35,7 +35,9 @@
 #include "test_dl_examples.h"
 #include "test_dl_common.h"
 #include "test_dl_init.h"
+#include "smpt_dl_client.h"
 #include <stdio.h>
+#include <time.h>
 #ifdef _WIN32
 #include <windows.h>
 #define sleep(x) Sleep((x)*1000)
@@ -407,7 +409,6 @@ void print_out_live_data(Smpt_dl_send_live_data *const dl_live_data)
            dl_live_data->packet_number);
 }
 
-#include <time.h>
 
 void handle_live_data(int *packetCounter,
                       uint8_t *lastPacketNumber,
