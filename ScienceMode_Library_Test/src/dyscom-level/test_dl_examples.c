@@ -36,6 +36,7 @@
 #include "test_dl_common.h"
 #include "test_dl_init.h"
 #include "dyscom-level/smpt_dl_client.h"
+#include "dyscom-level/smpt_dl_definitions_data_types.h"
 #include <stdio.h>
 #include <time.h>
 #ifdef _WIN32
@@ -44,6 +45,14 @@
 #else
 #include <unistd.h>
 #endif
+
+bool smpt_send_dl_power_module(Smpt_device *const device,  const Smpt_dl_power_module *const dl_power_module);
+bool smpt_send_dl_init(Smpt_device *const device, const Smpt_dl_init *const dl_init);
+bool smpt_send_dl_start(Smpt_device *const device, uint8_t packet_number);
+bool smpt_send_dl_stop(Smpt_device *const device, uint8_t packet_number);
+bool smpt_get_dl_send_live_data(Smpt_device *const device,
+                                         Smpt_dl_send_live_data *const dl_send_live_data);
+void smpt_clear_dl_send_live_data(Smpt_dl_send_live_data *const dl_send_live_data);
 
 #define LIVE_DATA_TIME_OFFSET_EXPECTED  500
 #define LIVE_DATA_TIME_OFFSET_EPS       10
