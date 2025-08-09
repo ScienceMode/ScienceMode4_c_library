@@ -39,18 +39,25 @@ extern "C" {
 
 #include <stdint.h>
 
-/* Define bool, because the Microsoft Compiler <= MSVC-2012 has no stdbool.h. */
-#ifdef _MSC_VER
-    #if (_MSC_VER < 1800)
-        #define false   0
-        #define true    1
-        #define bool int
+#if !defined(__cplusplus)
+    #ifdef _MSC_VER
+        #if (_MSC_VER < 1800)
+            #ifndef bool
+                #define bool int
+            #endif
+            #ifndef false
+                #define false 0
+            #endif
+            #ifndef true
+                #define true 1
+            #endif
+        #else
+            #include <stdbool.h>
+        #endif
     #else
         #include <stdbool.h>
-    #endif /* (_MSC_VER < 1800) */
-#else
-    #include <stdbool.h>
-#endif /* _MSC_VER */
+    #endif
+#endif
 
 #ifdef SMPT_DLL
 
