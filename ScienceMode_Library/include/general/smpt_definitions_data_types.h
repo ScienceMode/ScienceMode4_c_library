@@ -39,20 +39,19 @@ extern "C" {
 
 #include <stdint.h>
 
-#if !defined(__cplusplus)
-    #if defined(_MSC_VER) && (_MSC_VER < 1800)
-        #ifndef bool
-            #define bool int
-        #endif
-        #ifndef false
-            #define false 0
-        #endif
-        #ifndef true
-            #define true 1
-        #endif
-    #else
-        #include <stdbool.h>
+/* Bool type compatibility for C89/C99/C++ */
+#ifdef __cplusplus
+    /* C++ has built-in bool */
+#elif defined(_MSC_VER) && (_MSC_VER < 1800)
+    /* Old MSVC doesn't have stdbool.h */
+    #ifndef bool
+        #define bool int
+        #define false 0
+        #define true 1
     #endif
+#else
+    /* Modern C compilers have stdbool.h */
+    #include <stdbool.h>
 #endif
 
 #ifdef SMPT_DLL
