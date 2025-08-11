@@ -40,19 +40,15 @@ extern "C" {
 #include <stdint.h>
 
 #if !defined(__cplusplus)
-    #ifdef _MSC_VER
-        #if (_MSC_VER < 1800)
-            #ifndef bool
-                #define bool int
-            #endif
-            #ifndef false
-                #define false 0
-            #endif
-            #ifndef true
-                #define true 1
-            #endif
-        #else
-            #include <stdbool.h>
+    #if defined(_MSC_VER) && (_MSC_VER < 1800)
+        #ifndef bool
+            #define bool int
+        #endif
+        #ifndef false
+            #define false 0
+        #endif
+        #ifndef true
+            #define true 1
         #endif
     #else
         #include <stdbool.h>
