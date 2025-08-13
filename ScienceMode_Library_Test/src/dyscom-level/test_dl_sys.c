@@ -91,7 +91,7 @@ bool compare_dl_sys(const Smpt_dl_sys *const a,
     return valid;
 }
 
-void test_dl_sys_ack()
+void test_dl_sys_ack(void)
 {
     uint8_t buffer_[Smpt_Limit_Max_Packet_Size];
     uint32_t buffer_length_ = Smpt_Limit_Max_Packet_Size;
